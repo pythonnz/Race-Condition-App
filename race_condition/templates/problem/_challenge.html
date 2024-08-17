@@ -1,0 +1,18 @@
+<div id="challenge" data-challengeNumber="{{challenge_number}}" data-problemName="{{problem_name}}">
+    <h5>Input {{challenge_number}}</h5>
+    <article class="markdown-body">
+        {{challenge_input|safe }}
+    </article>
+
+    <form>
+        <div class="mb-3">
+            <!-- <label for="answer" class="form-label">Answer {{challenge_number}}</label>
+            -->
+            <h5>Answer {{challenge_number}}</h5>
+            <input type="text" class="form-control" id="answer" aria-describedby="answer">
+        </div>
+        <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+        <!-- <a type="submit" class="btn btn-primary">Submit</a> -->
+        <a href="#" id="challengeSubmitButton" class="btn btn-primary">Submit</a>
+    </form>
+</div>

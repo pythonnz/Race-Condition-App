@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+    {% for problem in problem_list %}
+    <li><a href="/problems/{{problem}}">{{ problem }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

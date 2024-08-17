@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mb-6">
+    <article class="markdown-body">
+        {{ problem_statement|safe }}
+    </article>
+</div>
+
+<div class="mb-3">
+    {% include 'problem/_challenge.html' %}
+</div>
+
+{% endblock %}
