@@ -4,7 +4,6 @@ from flask import Blueprint, render_template, request, jsonify, current_app
 
 # from race_condition import settings
 from race_condition.auth import login_required
-
 from race_condition.db import get_db
 
 bp = Blueprint("problems", __name__, url_prefix="/")
@@ -126,9 +125,7 @@ def show_problem(name):
 )
 @login_required
 def activate(name):
-    # TODO
     set_active_problem(name)
-    # g.active_problem=name
     return "ok", 200
 
 
@@ -142,7 +139,7 @@ def validate(problem_name, challenge_number):
     if problem_name not in _list_problems():
         return "Invalid problem name", 400
 
-    if isinstance(challenge_number, int):
+    if not isinstance(challenge_number, int):
         return "Invalid challenge number", 400
 
     submission_is_valid = validate_challenge_submission(
