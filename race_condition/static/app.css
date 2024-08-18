@@ -1,3 +1,26 @@
 /* body {
     color: red !important;
 } */
+
+body {
+    font-size: 1.25rem;
+}
+
+input {
+    font-size: 1.25em !important;
+}
+
+.success {
+    color: white !important;
+    /* background-color: #51cb69 !important; */
+    background-color: #7cd88e !important;
+}
+
+.incorrect {
+    color: white !important;
+    background-color: #d87c8f !important;
+}
+
+.challenge {
+    padding: 15px;
+}

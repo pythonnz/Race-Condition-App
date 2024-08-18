@@ -2,10 +2,15 @@
 
 {% block content %}
 
-<ul>
+<h1>List Problems</h1>
+
+<table class="table">
     {% for problem in problem_list %}
-    <li><a href="/problems/{{problem}}">{{ problem }}</li>
+    <tr>
+        <td><a href="{{ url_for('problems.show_problem', name=problem) }}">{{ problem }}</td>
+        <td><a href="{{ url_for('problems.activate', name=problem) }}" class="btn btn-primary" onclick="activateProblem(event, this)">Activate</a></td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 
 {% endblock %}

@@ -1,25 +1,52 @@
+var activateProblem = function(event, element) {
+    event.preventDefault()
+    let href = element.getAttribute("href")
+
+    $.ajax({
+        type: "POST",
+        url: href,
+        contentType: "application/json",
+        success: function(response) {
+            console.log(response)
+        },
+        error: function(xhr, status, error) {
+            console.log(status, error)
+        }
+    })
+}
+
+var handleSubmit = function(event) {
+    event.preventDefault();
+    let challengeDiv = $(event.target).closest('.challenge');
+    let challengeNumber = challengeDiv.data("challengenumber");
+    let problemName = challengeDiv.data("problemname");
+
+    console.log(challengeNumber)
+
+    let answerInput = challengeDiv.find(".answer");
+    let answer = answerInput.val();
+
+    $.ajax({
+        type: "POST",
+        url: `/problems/${problemName}/challenges/${challengeNumber}/validate`,
+        data: JSON.stringify({ data: answer }),
+        contentType: 'application/json',
+        success: function(response) {
+            challengeDiv.removeClass("incorrect");
+            challengeDiv.addClass("success");
+            console.log(response)
+            $("#challenges-list").html(response.challenge_response);
+            // $("#challenges-list").append(response.challenge_response);
+            hljs.highlightAll();
+        },
+        error: function(xhr, status, error) {
+            challengeDiv.removeClass("success");
+            challengeDiv.addClass("incorrect");
+        }
+    });
+}
+
 
 $(document).ready(function(){
-    $("#challengeSubmitButton").click(function(event){
-        event.preventDefault(); // Prevent default action of the link
-        let answer = $("#answer").val()
-        let challengeNumber = $("#challenge").data("challengenumber")
-        let problemName = $("#challenge").data("problemname")
 
-        $.ajax({
-            type: "POST",
-            url: `/problems/${problemName}/challenges/${challengeNumber}/validate`,
-            data: JSON.stringify({ data: answer }),
-            contentType: 'application/json',
-            success: function(response) {
-                $("#challenge").outerHTML("success", response.json())
-                console.log(response); // Handle the response here
-            },
-            error: function(xhr, status, error) {
-                // $("#challenge").outerHTML("success", response.json()
-                console.error(error); // Handle errors here
-            }
-        });
-    });
 });
-

@@ -1,18 +1,21 @@
-<div id="challenge" data-challengeNumber="{{challenge_number}}" data-problemName="{{problem_name}}">
-    <h5>Input {{challenge_number}}</h5>
-    <article class="markdown-body">
-        {{challenge_input|safe }}
-    </article>
+<div class="card mb-3">
+    <div class="card-body">
 
-    <form>
-        <div class="mb-3">
-            <!-- <label for="answer" class="form-label">Answer {{challenge_number}}</label>
-            -->
-            <h5>Answer {{challenge_number}}</h5>
-            <input type="text" class="form-control" id="answer" aria-describedby="answer">
+        <div id="challenge-{{challenge_number}}" class="challenge mb-3" data-challengeNumber="{{challenge_number}}" data-problemName="{{problem_name}}">
+
+            <h5>Input {{challenge_number}}</h5>
+            <article class="markdown-body">
+                {{challenge_input|safe }}
+            </article>
+
+            <form onsubmit="handleSubmit(event)">
+                <div class="mb-3">
+                    <h5>Answer {{challenge_number}}</h5>
+                    <input type="text" class="answer form-control" id="answer" aria-describedby="answer">
+                </div>
+                <button type="submit" id="answer-{{challenge_number}}" class="btn btn-primary challengeSubmitButton">Submit</a>
+            </form>
         </div>
-        <!-- <button type="button" class="btn btn-primary">Primary</button> -->
-        <!-- <a type="submit" class="btn btn-primary">Submit</a> -->
-        <a href="#" id="challengeSubmitButton" class="btn btn-primary">Submit</a>
-    </form>
+
+    </div>
 </div>
