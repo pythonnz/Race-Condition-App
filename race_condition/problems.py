@@ -54,7 +54,7 @@ def load_markdown(path):
 
 def _list_problems():
     full_path = os.path.join(current_app.root_path, "problems")
-    return os.listdir(full_path)
+    return sorted(os.listdir(full_path))
 
 
 def _show_problem(name, challenge_number=1):

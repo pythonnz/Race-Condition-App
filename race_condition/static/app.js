@@ -34,10 +34,10 @@ var handleSubmit = function(event) {
         success: function(response) {
             challengeDiv.removeClass("incorrect");
             challengeDiv.addClass("success");
-            console.log(response)
-            $("#challenges-list").html(response.challenge_response);
-            // $("#challenges-list").append(response.challenge_response);
-            hljs.highlightAll();
+            setTimeout(function () {
+                $("#challenges-list").html(response.challenge_response);
+                hljs.highlightAll();
+            }, 1500);
         },
         error: function(xhr, status, error) {
             challengeDiv.removeClass("success");
