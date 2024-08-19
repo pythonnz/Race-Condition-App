@@ -4,7 +4,9 @@ You are given two sorted lists `list1` and `list2`.
 
 Merge the two lists into one sorted list. The list should be made by splicing together the values of the first two lists.
 
-Return merged list. **You may not use `sorted()` or `heapq.merged()`**
+Return merged list. 
+
+**You may not use `sorted()` or `heapq.merged()`**
 
 Example 1
 

@@ -1,24 +1,25 @@
 class Solution:
     def decodeString(self, s: str) -> str:
         stack = []
-        
+
         for char in s:
-            if char != ']':
+            if char != "]":
                 stack.append(char)
                 continue
-            
+
             innerString = ""
-            while stack and stack[-1] != '[':
+            while stack and stack[-1] != "[":
                 innerString = stack.pop() + innerString
-            stack.pop() # Pop '['
-            
+            stack.pop()  # Pop '['
+
             multiplier = ""
             while stack and stack[-1].isdigit():
                 multiplier = stack.pop() + multiplier
-            
+
             stack.append(int(multiplier) * innerString)
-        
-        return ''.join(stack)
+
+        return "".join(stack)
+
 
 if __name__ == "__main__":
     s = Solution()
@@ -34,4 +35,3 @@ if __name__ == "__main__":
     # print(s.decodeString("3[a2[c]]"))
 
     # print(solution())
-

@@ -3,6 +3,7 @@ from race_condition.auth import login_required
 
 bp = Blueprint("admin", __name__, url_prefix="/admin")
 
+
 @bp.route("/")
 @login_required
 def index():

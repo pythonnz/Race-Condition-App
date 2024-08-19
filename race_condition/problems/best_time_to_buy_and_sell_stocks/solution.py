@@ -1,18 +1,21 @@
 from typing import List
 
+
 def solution(prices: List[int]) -> int:
-        buy_price = prices[0]
-        profit = 0
+    buy_price = prices[0]
+    profit = 0
 
-        for p in prices[1:]:
-            if buy_price > p:
-                buy_price = p
+    for p in prices[1:]:
+        if buy_price > p:
+            buy_price = p
 
-            profit = max(profit, p - buy_price)
+        profit = max(profit, p - buy_price)
 
-        return profit
+    return profit
+
 
 import random
+
 
 def generate_test_data(num_tests: int, value_range: tuple, size_range: tuple) -> None:
     for _ in range(num_tests):
@@ -20,6 +23,7 @@ def generate_test_data(num_tests: int, value_range: tuple, size_range: tuple) ->
         test_data = [random.randint(*value_range) for _ in range(123)]
         return test_data
         print(test_data)
+
 
 if __name__ == "__main__":
     # print(solution([1,2,10,1,10]))

@@ -134,7 +134,6 @@ def activate(name):
     methods=["POST"],
 )
 def validate(problem_name, challenge_number):
-
     # No path traversal
     if problem_name not in _list_problems():
         return "Invalid problem name", 400

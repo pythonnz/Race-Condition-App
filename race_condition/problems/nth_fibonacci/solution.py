@@ -9,8 +9,9 @@ def fibonacci(n, memo={}):
         return 1
     else:
         # Recursively compute Fibonacci value
-        memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+        memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo)
         return memo[n]
+
 
 if __name__ == "__main__":
     print(fibonacci(159))
