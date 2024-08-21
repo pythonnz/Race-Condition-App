@@ -21,4 +21,4 @@ http://127.0.0.1:5000/admin
 
 Contestants never need to leave the root of the site http://127.0.0.1:5000/
 
-Admins can set the challenge that is active http://127.0.0.1:5000/problems/list/
+Admins can set the challenge that is active http://127.0.0.1:5000/problems/
