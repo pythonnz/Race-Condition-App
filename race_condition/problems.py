@@ -151,7 +151,14 @@ def validate(problem_name, challenge_number):
     next_challenge = _show_challenge(problem_name, challenge_number + 1)
 
     if next_challenge is None:
-        next_challenge = "<h1 class='success'>Problem Complete</h1>"
+        template_vars = {
+            "problem_name": problem_name,
+            "challenge_input": load_markdown(
+                f"problems/{problem_name}/input_{challenge_number}.md"
+            ),
+            "challenge_number": challenge_number,
+        }
+        next_challenge = render_template("problem/_complete.html", **template_vars)
 
     return jsonify(
         {

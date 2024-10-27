@@ -21,8 +21,6 @@ var handleSubmit = function(event) {
     let challengeNumber = challengeDiv.data("challengenumber");
     let problemName = challengeDiv.data("problemname");
 
-    console.log(challengeNumber)
-
     let answerInput = challengeDiv.find(".answer");
     let answer = answerInput.val();
 
@@ -32,8 +30,14 @@ var handleSubmit = function(event) {
         data: JSON.stringify({ data: answer }),
         contentType: 'application/json',
         success: function(response) {
+
             challengeDiv.removeClass("incorrect");
             challengeDiv.addClass("success");
+
+            const container = document.querySelector('.fireworks')
+            const fireworks = new Fireworks.default(container)
+            fireworks.launch(10)
+
             setTimeout(function () {
                 $("#challenges-list").html(response.challenge_response);
                 hljs.highlightAll();
@@ -46,7 +50,7 @@ var handleSubmit = function(event) {
     });
 }
 
-
 $(document).ready(function(){
-
+    particlesJS.load('particles-js', 'static/particles.json', function() {
+    });
 });

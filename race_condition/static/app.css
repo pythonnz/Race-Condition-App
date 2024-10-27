@@ -1,7 +1,3 @@
-/* body {
-    color: red !important;
-} */
-
 body {
     font-size: 1.25rem;
 }
@@ -10,17 +6,33 @@ input {
     font-size: 1.25em !important;
 }
 
-.success {
+.success > .card {
     color: white !important;
-    /* background-color: #51cb69 !important; */
     background-color: #7cd88e !important;
 }
 
-.incorrect {
+.incorrect > .card {
     color: white !important;
     background-color: #d87c8f !important;
 }
 
-.challenge {
-    padding: 15px;
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    /* This is a beautiful black/blue/purple gradient background */
+    /* background: rgb(2,0,36); */
+    /* background: linear-gradient(120deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(145,0,255,1) 100%); */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
